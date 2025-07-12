@@ -113,25 +113,63 @@
 
 //merge sorted array
 
-let arr1 = [1, 3, 5];
-let arr2 = [2, 4, 6, 8];
+// let arr1 = [1, 3, 5];
+// let arr2 = [2, 4, 6, 8];
 
-let merge = new Array(arr1.length + arr2.length);
-let i = (j = k = 0);
+// let merge = new Array(arr1.length + arr2.length);
+// let i = (j = k = 0);
 
-while (i < arr1.length && j < arr2.length) {
-  if (arr1[i] < arr2[j]) {
-    merge[k++] = arr1[i++];
-  } else {
-    merge[k++] = arr2[j++];
+// while (i < arr1.length && j < arr2.length) {
+//   if (arr1[i] < arr2[j]) {
+//     merge[k++] = arr1[i++];
+//   } else {
+//     merge[k++] = arr2[j++];
+//   }
+// }
+
+// while (i < arr1.length) {
+//   merge[k++] = arr1[i++];
+// }
+// while (j < arr2.length) {
+//   merge[k++] = arr2[j++];
+// }
+
+// console.log(merge);
+
+//Maximum Subarray
+
+// let nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+
+// var maxSubArray = function (nums) {
+//   let max = -Infinity;
+//   let sum = 0;
+
+//   for (let i = 0; i < nums.length; i++) {
+//     sum += nums[i];
+//     max = Math.max(max, sum);
+//     if (sum < 0) sum = 0;
+//   }
+//   return max;
+// };
+
+// let result = maxSubArray(nums);
+
+// console.log(result);
+
+//Majority Element
+
+let nums = [1, 1, 2, 2, 3, 3, 3];
+var majorityElement = function (nums) {
+  let ans = nums[0];
+  let count = 1;
+  for (let i = 1; i < nums.length; i++) {
+    if (count == 0) {
+      ans = nums[i];
+      count = 1;
+    } else if (ans == nums[i]) count++;
+    else count--;
   }
-}
-
-while (i < arr1.length) {
-  merge[k++] = arr1[i++];
-}
-while (j < arr2.length) {
-  merge[k++] = arr2[j++];
-}
-
-console.log(merge);
+  return ans;
+};
+let result = majorityElement(nums);
+console.log(result);
