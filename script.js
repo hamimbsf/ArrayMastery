@@ -92,19 +92,46 @@
 //   }
 // }
 
-let nums = [1, 1, 2, 2, 3, 3];
+// Remove Duplicates from Sorted Array
 
-var removeDuplicates = function (nums) {
-  let j = 1;
-  for (let i = 0; i < nums.length - 1; i++) {
-    if (nums[i] !== nums[i + 1]) {
-      nums[j] = nums[i + 1];
-      j++;
-    }
+// let nums = [1, 1, 2, 2, 3, 3];
+
+// var removeDuplicates = function (nums) {
+//   let j = 1;
+//   for (let i = 0; i < nums.length - 1; i++) {
+//     if (nums[i] !== nums[i + 1]) {
+//       nums[j] = nums[i + 1];
+//       j++;
+//     }
+//   }
+//   return j;
+// };
+
+// let newLength = removeDuplicates(nums);
+
+// console.log(newLength);
+
+//merge sorted array
+
+let arr1 = [1, 3, 5];
+let arr2 = [2, 4, 6, 8];
+
+let merge = new Array(arr1.length + arr2.length);
+let i = (j = k = 0);
+
+while (i < arr1.length && j < arr2.length) {
+  if (arr1[i] < arr2[j]) {
+    merge[k++] = arr1[i++];
+  } else {
+    merge[k++] = arr2[j++];
   }
-  return j;
-};
+}
 
-let newLength = removeDuplicates(nums);
+while (i < arr1.length) {
+  merge[k++] = arr1[i++];
+}
+while (j < arr2.length) {
+  merge[k++] = arr2[j++];
+}
 
-console.log(newLength);
+console.log(merge);
